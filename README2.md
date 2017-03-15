@@ -37,6 +37,7 @@
   * [24.反馈信息展示](#24反馈信息展示)
   * [25.提交反馈](#25提交反馈)
   * [26.弹窗管理](#26弹窗管理)
+  * [27.游戏覆盖安装白名单](#27游戏覆盖安装白名单)
 
 
 #### **规格说明**
@@ -1242,6 +1243,39 @@ with参数格式为
       		      frequency":604800
       	    }
         }
+    }
+    ...
+]
+```
+
+<br>
+
+### 27.游戏覆盖安装白名单
+请求地址：{gcenter_host}/api/gamecoveragewhitelist
+
+|Request|Method : post||
+|---|---|---|
+|参数名|类型|说明|
+|X-Client-Info 请求头部参数
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+ code   int 返回数据格式  200:正常,400:头部信息client_install_packages解析错误
+```
+[
+    {
+        "code":200,
+        "type":"game_coverage_install",
+      	"message":"",
+        "data":[
+            {
+                id:3423,
+                package_name:"com.baidu.com",
+                version_code:"4203",
+                download_url:"https://www.baidu.com",
+                package_size:34423532
+            },
+            ......
+        ]
     }
     ...
 ]
