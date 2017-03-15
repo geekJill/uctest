@@ -1256,7 +1256,7 @@ with参数格式为
 |Request|Method : post||
 |---|---|---|
 |参数名|类型|说明|
-|X-Client-Info 请求头部参数
+|client_install_packages 请求头部参数
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
  code   int 返回数据格式  200:正常,400:头部信息client_install_packages解析错误
