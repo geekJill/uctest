@@ -38,6 +38,7 @@
   * [25.提交反馈](#25提交反馈)
   * [26.弹窗管理](#26弹窗管理)
   * [27.游戏覆盖安装白名单](#27游戏覆盖安装白名单)
+  * [28.上报客户端相关信息](#28上报客户端相关信息)
 
 
 #### **规格说明**
@@ -1256,10 +1257,11 @@ with参数格式为
 |Request|Method : post||
 |---|---|---|
 |参数名|类型|说明|
-|client_install_packages 请求头部参数
+|X-Client-Info|string(json format)|请求头部参数
+|client_install_packages|string(json format)|客户端上报的包信息[{package_name:"com.baidu.xyz",version_code:"420","package_md5":"addsklfjslfjfjsdljlsdjfl"}......]
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
- code   int 返回数据格式  200:正常,400:头部信息client_install_packages解析错误
+ code   int 返回数据格式  200:正常,400:上报包信息client_install_packages解析错误
 ```
 [
     {
@@ -1276,6 +1278,35 @@ with参数格式为
             },
             ......
         ]
+    }
+    ...
+]
+```
+
+<br>
+
+### 27.上报客户端相关信息
+请求地址：{gcenter_host}/api/client/report/info
+
+|Request|Method : post||
+|---|---|---|
+|参数名|类型|说明|
+|X-Client-Info|string(json format)|请求头部参数
+|cid|string| 手机cid|
+|type|string| 手机类型|
+|already_install_apps|string(json format)| 手机已安装应用列表|
+|network_operator|string| 网络运营商|
+|network_type|string| 网络类型|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+ code   int 返回数据格式  200|201:正常,400:头部信息X-Client-Info解析错误，500上报失败
+```
+[
+    {
+        "code":200,
+        "type":"client_report_info",
+        "message":"",
+        "data":[]
     }
     ...
 ]
