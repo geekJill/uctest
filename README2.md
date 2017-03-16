@@ -1285,7 +1285,7 @@ with参数格式为
 
 <br>
 
-### 27.上报客户端相关信息
+### 28.上报客户端相关信息
 请求地址：{gcenter_host}/api/client/report/info
 
 |Request|Method : post||
